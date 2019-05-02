@@ -295,7 +295,7 @@ function create() {
 				}
 				break;
 			case "circle":
-					style += "border-radius: 50%";
+					style += "border-radius: 50%;";
 				break;
 			default:
 				break;
