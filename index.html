@@ -68,7 +68,7 @@
 					<td>
 						<button onclick="redo()"><i class="fas fa-redo"></i></button>
 					</td>
-					<td><input id="gird_input" onkeydown="kd(this,1)" onkeyup="kd(this,0)" class="help" type="number" title="Grid" min="0" max="100" onmousemove="$(this).focus()" onmouseout="$(this).blur()" value="20" />px</td>
+					<td><input id="gird_input" onkeydown="kd(this,1)" onkeyup="kd(this,0)" class="help" type="number" title="Grid" min="0" max="100" onmousemove="$(this).focus()" onmouseout="draw();$(this).blur()" value="20" />px</td>
 					<td>
 						<div class="button b2" id="button-7">
 							<input type="checkbox" class="checkbox help" onchange="update_div()" id="create_type" />
@@ -80,7 +80,7 @@
 					</td>
 					<td>
 						<div class="button b20" id="button-70">
-							<input type="checkbox" class="checkbox" onchange="pp(this)" id="pp" />
+							<input type="checkbox" class="checkbox help" onchange="pp(this)" id="pp" />
 							<div class="knobs fas" >
 								<span><i class="fas fa-play"></i></span>
 							</div>
@@ -130,10 +130,12 @@
 		<script src="js/lib/snippet/highlight.pack.js"></script>
 		<script type="text/javascript">
 			function pp(el) {
-				if($(el).prop("checked")){
-				noloop();	
+			if($(el).prop("checked")){
+				opty = true
+				noLoop()
 			}else{
-				Loop();
+				opty = false
+				loop()
 			}
 		}
 
