@@ -6,6 +6,7 @@ let mss = [];
 let mcc = [];
 let div = [];
 let lp = 0
+let opty = false;
 function preload() {
 	circle_cur = "css/cursor/O.cur";
 	rect_cur = "css/cursor/cube.cur";
@@ -102,7 +103,7 @@ function mousePressed() {
 	mouseY_start = round(mouseY / gird_size) * gird_size;
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= width && mouseY <= height) {
 		dra = true;
-		loop();
+		if (opty){ loop();}
 	}
 }
 
@@ -137,13 +138,12 @@ function mouseReleased() {
 		update_div();
 	}
 	dra = false;
-	noLoop();
+	if (opty){ noLoop() };
 }
 function windowResized() {
 	resizeCanvas(windowWidth / 2, windowHeight / 2);
 }
 function update_div() {
-	draw()
 	removeElements();
 	create_tool();
 	for (key in mss) {
@@ -245,7 +245,7 @@ function redo() {
 }
 
 function create() {
-	draw()
+	if (opty) { draw()}
 	let type = $("#create_type").prop("checked");
 	let mmm = mss;
 	$(".raw").html("");
